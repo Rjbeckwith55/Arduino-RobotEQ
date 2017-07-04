@@ -55,6 +55,12 @@ int RobotEQ::commandMotorPower(uint8_t ch, int16_t p) {
     return this->sendCommand(command);
 }
 
+int RobotEQ::commandCANMotorPower(uint8_t id, uint8_t ch, int16_t p) {
+    char command[ROBOTEQ_COMMAND_BUFFER_SIZE];
+    sprintf(command,id, "_G %02d %d\r", ch, p);
+    return this->sendCommand(command);
+}
+
 int RobotEQ::commandEmergencyStop(void) {
     char command[ROBOTEQ_COMMAND_BUFFER_SIZE];
     sprintf(command, "!EX\r");
