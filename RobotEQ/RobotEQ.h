@@ -96,6 +96,14 @@ class RobotEQ {
          */
         int commandMotorPower(uint8_t ch, int16_t p);
 
+        /* send can motor power command (_G)
+         *
+         * @param id remote node ID (in decimal?)
+         * @param ch channel
+         * @param p power level (-1000, 1000)
+         * @return ROBOTEQ_OK if successful
+         */
+        int commandCANMotorPower(uint8_t id, uint8_t ch, int16_t p);
         /*
          * send emergency stop command (!EX)
          * note: you have to reset the controller after this sending command
